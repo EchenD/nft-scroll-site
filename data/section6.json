@@ -3,21 +3,21 @@
     "bgColor": "#fffbe5",
     "characters": [
         {
-            "image": "assets/characters/c14.png",
+            "image": "assets/characters/c17.png",
             "dialogues": [
                 "Meme Lord Maximo—spreading chaos, one meme at a time!",
                 "You can’t out-meme me, peasants!"
             ]
         },
         {
-            "image": "assets/characters/c6.png",
+            "image": "assets/characters/c13.png",
             "dialogues": [
                 "Downbad Danny here, I only have sad memes!",
                 "But I can out-cry you any day!"
             ]
         },
         {
-            "image": "assets/characters/c19.png",
+            "image": "assets/characters/c26.png",
             "dialogues": [
                 "Token Tommy! I hoard memes like tokens. Gotta collect them all!",
                 "Now watch me drop a savage meme bomb..."

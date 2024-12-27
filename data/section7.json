@@ -3,21 +3,21 @@
     "bgColor": "#ffefd5",
     "characters": [
         {
-            "image": "assets/characters/c18.png",
+            "image": "assets/characters/c15.png",
             "dialogues": [
                 "Gas Fee Greg here—my wallet’s burning more than my toast!",
                 "I’d rather pay for gold-plated avocado toast than these fees!"
             ]
         },
         {
-            "image": "assets/characters/c21.png",
+            "image": "assets/characters/c5.png",
             "dialogues": [
                 "Flash Crash Fiona: I flinch at every spike!",
                 "Gas fees? More like heartbreak fees!"
             ]
         },
         {
-            "image": "assets/characters/c24.png",
+            "image": "assets/characters/c14.png",
             "dialogues": [
                 "Chart-Chasing Charlie: My charts show fees going up forever!",
                 "Anyone got a coupon code for transactions?"

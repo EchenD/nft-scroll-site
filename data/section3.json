@@ -3,21 +3,21 @@
     "bgColor": "#ffe8e8",
     "characters": [
         {
-            "image": "assets/characters/c8.png",
+            "image": "assets/characters/c20.png",
             "dialogues": [
                 "Paper Hands Paul protesting high gas fees. Gimme free airdrops or I’m out!",
                 "We deserve freebies every day—no strings attached!"
             ]
         },
         {
-            "image": "assets/characters/c9.png",
+            "image": "assets/characters/c27.png",
             "dialogues": [
                 "FOMO Freddy here—I’m just worried I’ll miss out on the next airdrop if it’s not free!",
                 "Stop charging me for my own greed!"
             ]
         },
         {
-            "image": "assets/characters/c11.png",
+            "image": "assets/characters/c8.png",
             "dialogues": [
                 "Burnout Becky’s exhausted, but I’ll protest too!",
                 "Free airdrops = free serotonin. Sign me up!"
