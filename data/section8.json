@@ -1,0 +1,21 @@
+{
+    "templateId": 0,
+    "bgColor": "#e5ffe5",
+    "characters": [
+        {
+            "image": "assets/characters/c10.png",
+            "dialogues": [
+                "Big Bet Betty: Private yacht parties for us whales, darling.",
+                "Don’t tell the minnows about the caviar station."
+            ]
+        },
+        {
+            "image": "assets/characters/c16.png",
+            "dialogues": [
+                "Pump Daddy Phil: Shh, hush hush, I’m orchestrating a top-secret pump!",
+                "But I might spill the beans if you top my offer..."
+            ]
+        }
+    ],
+    "buttonText": "Peek Inside"
+}

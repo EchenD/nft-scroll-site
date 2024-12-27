@@ -3,24 +3,30 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NFT Scroll Animations</title>
-    <!-- GSAP & ScrollTrigger from CDN -->
+    <title>Freak Off NFTs</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- GSAP + ScrollTrigger from CDN (or your bundler) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <!-- Your global CSS -->
-    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-    <h1>NFT Scroll Animations</h1>
-    <div id="sections-container">
-        <!-- Dynamic sections will be appended here by main.js -->
-    </div>
+    <header>
+        <h1>Freak Off NFT</h1>
+        <nav id="header-nav"></nav>
+    </header>
 
-    <!-- Main JS file -->
+    <main id="sections-container">
+        <!-- Sections will be created dynamically here. -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Freak Off NFT. All rights reserved.</p>
+    </footer>
+
+    <!-- Main JS entry -->
     <script type="module" src="main.js"></script>
 </body>
 

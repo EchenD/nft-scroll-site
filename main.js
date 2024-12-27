@@ -1,84 +1,81 @@
 // main.js
 import { template0 } from "./templates/template0.js";
 import { template1 } from "./templates/template1.js";
-
-// We'll create a dictionary to map templateId -> function
-const templateMap = {
-    0: template0,
-    1: template1,
-    // 2: template2, etc...
-};
-
-async function fetchJSON(url) {
-    const resp = await fetch(url);
-    if (!resp.ok) {
-        throw new Error(`Could not fetch ${url}`);
-    }
-    return resp.json();
-}
+import { template2 } from "./templates/template2.js";
+import { template3 } from "./templates/template3.js";
+import { template4 } from "./templates/template4.js";
+import { template5 } from "./templates/template5.js";
 
 async function init() {
     gsap.registerPlugin(ScrollTrigger);
 
-    const sectionsContainer = document.getElementById("sections-container");
+    const resp = await fetch("data/sections.json");
+    const data = await resp.json();
 
-    // 1) Fetch the "index" JSON
-    let indexData;
-    try {
-        indexData = await fetchJSON("data/sections.json");
-    } catch (e) {
-        console.error("Error fetching sections.json:", e);
-        return;
-    }
+    createHeaderButtons(data.sections);
 
-    // 2) Loop over each section from the index
-    for (const sec of indexData.sections) {
-        const { id, title, dataFile } = sec;
+    const mainContainer = document.getElementById("sections-container");
 
-        // Create a <section> in the DOM
+    for (const sec of data.sections) {
         const sectionEl = document.createElement("section");
+        sectionEl.id = sec.id;
         sectionEl.classList.add("section");
-        sectionEl.id = id;
 
-        // Maybe add a heading
-        const heading = document.createElement("h2");
-        heading.innerText = title;
-        sectionEl.appendChild(heading);
+        // Title
+        const h2 = document.createElement("h2");
+        h2.textContent = sec.title;
+        sectionEl.appendChild(h2);
 
-        // Append sectionEl to the container
-        sectionsContainer.appendChild(sectionEl);
+        mainContainer.appendChild(sectionEl);
 
-        // 3) Fetch the individual section's data JSON
-        let sectionData;
-        try {
-            sectionData = await fetchJSON(dataFile);
-        } catch (err) {
-            console.error(`Error fetching ${dataFile}:`, err);
-            continue; // skip this section
+        // Fetch the individual section’s data
+        const sectionResp = await fetch(sec.dataFile);
+        const sectionData = await sectionResp.json();
+        const { templateId, characters, buttonText, bgColor, bgImage } = sectionData;
+
+        // Set background
+        if (bgImage) {
+            sectionEl.style.background = `url('${bgImage}') center center / cover no-repeat`;
+        } else if (bgColor) {
+            sectionEl.style.background = bgColor;
         }
 
-        // We expect something like:
-        //  { templateId: 1, characters: [...], buttonText: "..." }
-
-        const { templateId, characters, buttonText } = sectionData;
-        const selectedTemplate = templateMap[templateId];
-
-        if (!selectedTemplate) {
-            console.warn(`No template found for templateId: ${templateId}`);
-            continue;
+        let createFn;
+        switch (templateId) {
+            case 0: createFn = template0; break;
+            case 1: createFn = template1; break;
+            case 2: createFn = template2; break;
+            case 3: createFn = template3; break;
+            case 4: createFn = template4; break;
+            case 5: createFn = template5; break;
+            default: createFn = template0;
         }
 
-        // 4) Call the template function
-        selectedTemplate({
+        createFn({
             container: sectionEl,
             characters,
             buttonText
         });
-
-        // (Optionally) do lazy loading logic for images
-        // but usually, if the images are in the <img src="...">, the browser will handle caching
     }
 }
 
-// Start everything
-init().catch(console.error);
+/** Create header buttons for sections with showInHeader = true */
+function createHeaderButtons(sections) {
+    const headerNav = document.getElementById("header-nav");
+    if (!headerNav) return;
+
+    sections.forEach((sec) => {
+        if (sec.showInHeader) {
+            const btn = document.createElement("button");
+            btn.textContent = sec.title;
+            btn.addEventListener("click", () => {
+                document.getElementById(sec.id).scrollIntoView({
+                    behavior: "smooth",
+                });
+            });
+            headerNav.appendChild(btn);
+        }
+    });
+}
+
+init();

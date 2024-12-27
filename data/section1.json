@@ -1,21 +1,21 @@
 {
     "templateId": 1,
+    "bgColor": "#f2f2ff",
     "characters": [
         {
             "image": "assets/characters/c1.png",
             "dialogues": [
-                "Hey there!",
-                "I’m your first NFT character."
+                "I’m Moon Man Max—shooting for the stars, baby!",
+                "One day, Netflix will call me for a cameo!"
             ]
         },
         {
             "image": "assets/characters/c2.png",
             "dialogues": [
-                "Hello!",
-                "Welcome to our NFT show."
+                "Ragpull Ricky here. I’m the sly one... but I’m aiming for Hollywood next!",
+                "Wait, do they pay in ETH or popcorn?"
             ]
         }
     ],
-    "title": "Meet the Characters",
-    "buttonText": "Let them talk!"
+    "buttonText": "Meet the Freaks"
 }

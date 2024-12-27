@@ -2,8 +2,63 @@
   "sections": [
     {
       "id": "section1",
-      "title": "Section 1 Title",
-      "dataFile": "data/section1.json"
+      "title": "Freaky Introductions",
+      "dataFile": "data/section1.json",
+      "showInHeader": true
+    },
+    {
+      "id": "section2",
+      "title": "Who’s the Priciest NFT?",
+      "dataFile": "data/section2.json",
+      "showInHeader": true
+    },
+    {
+      "id": "section3",
+      "title": "Protest For Free Airdrops",
+      "dataFile": "data/section3.json",
+      "showInHeader": true
+    },
+    {
+      "id": "section4",
+      "title": "A Crypto Love Affair",
+      "dataFile": "data/section4.json",
+      "showInHeader": true
+    },
+    {
+      "id": "section5",
+      "title": "Moon Dreams & Hollywood",
+      "dataFile": "data/section5.json",
+      "showInHeader": true
+    },
+    {
+      "id": "section6",
+      "title": "Chaotic Meme Battle",
+      "dataFile": "data/section6.json",
+      "showInHeader": true
+    },
+    {
+      "id": "section7",
+      "title": "Gas Fee Nightmares",
+      "dataFile": "data/section7.json",
+      "showInHeader": true
+    },
+    {
+      "id": "section8",
+      "title": "Secret Whale Society",
+      "dataFile": "data/section8.json",
+      "showInHeader": true
+    },
+    {
+      "id": "section9",
+      "title": "FOMO in Vegas",
+      "dataFile": "data/section9.json",
+      "showInHeader": true
+    },
+    {
+      "id": "section10",
+      "title": "Nifty Party Time",
+      "dataFile": "data/section10.json",
+      "showInHeader": true
     }
   ]
 }

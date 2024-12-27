@@ -1,0 +1,21 @@
+{
+    "templateId": 1,
+    "bgColor": "#ffeccc",
+    "characters": [
+        {
+            "image": "assets/characters/c4.png",
+            "dialogues": [
+                "Shill Queen Serena here—my value is off the charts!",
+                "I have more bids than you can count, darling."
+            ]
+        },
+        {
+            "image": "assets/characters/c7.png",
+            "dialogues": [
+                "Diamond Hands Dana at your service. Priceless, obviously!",
+                "Try matching my diamond fortress, Shill Queen!"
+            ]
+        }
+    ],
+    "buttonText": "Who’s Worth More?!"
+}

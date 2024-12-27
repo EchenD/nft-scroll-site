@@ -1,0 +1,21 @@
+{
+    "templateId": 1,
+    "bgColor": "#fff4e5",
+    "characters": [
+        {
+            "image": "assets/characters/c13.png",
+            "dialogues": [
+                "No-Coiner Nina here—pretending I know crypto. But Vegas is my jam!",
+                "I put it all on red... or was it DOGE?"
+            ]
+        },
+        {
+            "image": "assets/characters/c17.png",
+            "dialogues": [
+                "Degen Dora doubling down on everything!",
+                "If I lose, I can just mint more... right?"
+            ]
+        }
+    ],
+    "buttonText": "Roll the Dice!"
+}

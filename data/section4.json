@@ -1,0 +1,21 @@
+{
+    "templateId": 0,
+    "bgColor": "#fde7ff",
+    "characters": [
+        {
+            "image": "assets/characters/c12.png",
+            "dialogues": [
+                "YOLO Yuki here. I’m risking my heart—like my crypto trades.",
+                "Gotta say... I’m mooning over you!"
+            ]
+        },
+        {
+            "image": "assets/characters/c25.png",
+            "dialogues": [
+                "Volatile Vicky in the house—my heart pumps faster than a bull market!",
+                "You make me spike like a 10x chart!"
+            ]
+        }
+    ],
+    "buttonText": "Witness the Love!"
+}
