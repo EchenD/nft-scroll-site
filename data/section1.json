@@ -1,0 +1,21 @@
+{
+    "templateId": 1,
+    "characters": [
+        {
+            "image": "assets/characters/c1.png",
+            "dialogues": [
+                "Hey there!",
+                "I’m your first NFT character."
+            ]
+        },
+        {
+            "image": "assets/characters/c2.png",
+            "dialogues": [
+                "Hello!",
+                "Welcome to our NFT show."
+            ]
+        }
+    ],
+    "title": "Meet the Characters",
+    "buttonText": "Let them talk!"
+}

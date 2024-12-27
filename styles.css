@@ -1,0 +1,44 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #fefefe;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#sections-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+/* Basic section styling */
+.section {
+    margin: 2rem 0;
+    padding: 2rem;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+/* Character images */
+.character {
+    display: inline-block;
+    max-width: 200px;
+    margin-right: 1rem;
+}
+
+/* Dialogue bubble (example) */
+.dialogue-bubble {
+    display: inline-block;
+    background: #e9e9e9;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    position: relative;
+    max-width: 300px;
+}

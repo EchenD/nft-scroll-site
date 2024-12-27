@@ -1,0 +1,9 @@
+{
+  "sections": [
+    {
+      "id": "section1",
+      "title": "Section 1 Title",
+      "dataFile": "data/section1.json"
+    }
+  ]
+}
