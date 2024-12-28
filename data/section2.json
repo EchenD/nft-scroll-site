@@ -12,7 +12,7 @@
                 "face": "Confident",
                 "head": "Gold Tiara"
             },
-            "specialEffects": "sparkles",
+            "specialEffects": "sparkle",
             "dialogues": [
                 "Shill Queen Serena here—my value is off the charts!",
                 "I have more bids than you can count, darling."
@@ -28,7 +28,7 @@
                 "face": "Stoic",
                 "head": "Diamond Crown"
             },
-            "specialEffects": "diamonds",
+            "specialEffects": "diamond",
             "dialogues": [
                 "Diamond Hands Dana at your service. Priceless, obviously!",
                 "Try matching my diamond fortress, Shill Queen!"

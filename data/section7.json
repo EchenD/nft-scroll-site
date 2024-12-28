@@ -44,7 +44,7 @@
                 "face": "Focused",
                 "head": "Chart Cap"
             },
-            "specialEffects": "charts",
+            "specialEffects": "chart",
             "dialogues": [
                 "Chart-Chasing Charlie: My charts show fees going up forever!",
                 "Anyone got a coupon code for transactions?"

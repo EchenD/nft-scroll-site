@@ -236,3 +236,15 @@ footer {
 .particle.diamond {
     background: url("assets/vfx/diamond.png") no-repeat center / contain !important;
 }
+
+.particle.fire {
+    background: url("assets/vfx/fire.png") no-repeat center / contain !important;
+}
+
+.particle.star {
+    background: url("assets/vfx/star.png") no-repeat center / contain !important;
+}
+
+.particle.wave {
+    background: url("assets/vfx/wave.png") no-repeat center / contain !important;
+}

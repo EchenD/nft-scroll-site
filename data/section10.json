@@ -28,7 +28,7 @@
                 "face": "Artsy",
                 "head": "VR Goggles"
             },
-            "specialEffects": "lights",
+            "specialEffects": "light",
             "dialogues": [
                 "NFT Nia here, painting the dance floor with digital art vibes!",
                 "Wait, you minted my moves? I want royalties!"
