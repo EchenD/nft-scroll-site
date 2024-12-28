@@ -104,7 +104,7 @@ footer {
 
 /* Character image style */
 .character {
-    max-width: 200px;
+    max-width: 250px;
     height: auto;
     display: block;
     border-radius: 10px;
