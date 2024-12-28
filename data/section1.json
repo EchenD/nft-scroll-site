@@ -3,14 +3,32 @@
     "bgColor": "#f2f2ff",
     "characters": [
         {
-            "image": "assets/characters/c18.png",
+            "title": "Moon Man Max",
+            "imageUrl": "assets/characters/c18.png",
+            "nftAttributes": {
+                "background": "Moon Skyline",
+                "body": "White Blob",
+                "skin": "Smooth",
+                "face": "Starry-Eyed",
+                "head": "Rocket Cap"
+            },
+            "specialEffects": "stars",
             "dialogues": [
                 "I’m Moon Man Max—shooting for the stars, baby!",
                 "One day, Netflix will call me for a cameo!"
             ]
         },
         {
-            "image": "assets/characters/c22.png",
+            "title": "Ragpull Ricky",
+            "imageUrl": "assets/characters/c22.png",
+            "nftAttributes": {
+                "background": "Slick Alley",
+                "body": "Red Blob",
+                "skin": "Rubbery",
+                "face": "Sly Grin",
+                "head": "Bandana"
+            },
+            "specialEffects": "money",
             "dialogues": [
                 "Ragpull Ricky here. I’m the sly one... but I’m aiming for Hollywood next!",
                 "Wait, do they pay in ETH or popcorn?"

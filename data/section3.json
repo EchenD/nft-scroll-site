@@ -1,28 +1,167 @@
 {
     "templateId": 3,
-    "bgColor": "#ffe8e8",
+    "bgColor": "#f2f2ff",
     "characters": [
         {
-            "image": "assets/characters/c20.png",
+            "title": "Protestor Paul",
+            "imageUrl": "assets/characters/c1.png",
+            "nftAttributes": {
+                "background": "Sky Blue",
+                "body": "Green Blob",
+                "skin": "Smooth",
+                "face": "Angry",
+                "head": "Cap"
+            },
+            "specialEffects": "lightning",
             "dialogues": [
-                "Paper Hands Paul protesting high gas fees. Gimme free airdrops or I’m out!",
-                "We deserve freebies every day—no strings attached!"
+                "No airdrop, no peace!",
+                "Free airdrops for all blobs!"
             ]
         },
         {
-            "image": "assets/characters/c27.png",
+            "title": "Angry Annie",
+            "imageUrl": "assets/characters/c2.png",
+            "nftAttributes": {
+                "background": "Sunset",
+                "body": "Pink Blob",
+                "skin": "Spotted",
+                "face": "Fuming",
+                "head": "Flower Crown"
+            },
+            "specialEffects": "stars",
             "dialogues": [
-                "FOMO Freddy here—I’m just worried I’ll miss out on the next airdrop if it’s not free!",
-                "Stop charging me for my own greed!"
+                "Where’s my NFT airdrop?",
+                "This is an airdrop emergency!"
             ]
         },
         {
-            "image": "assets/characters/c8.png",
+            "title": "Shouting Sam",
+            "imageUrl": "assets/characters/c3.png",
+            "nftAttributes": {
+                "background": "Cityscape",
+                "body": "Yellow Blob",
+                "skin": "Glossy",
+                "face": "Shouting",
+                "head": "Top Hat"
+            },
+            "specialEffects": "confetti",
             "dialogues": [
-                "Burnout Becky’s exhausted, but I’ll protest too!",
-                "Free airdrops = free serotonin. Sign me up!"
+                "Airdrops or we blob out!",
+                "I won’t rest until we get it!"
+            ]
+        },
+        {
+            "title": "Determined Diana",
+            "imageUrl": "assets/characters/c4.png",
+            "nftAttributes": {
+                "background": "Forest",
+                "body": "Orange Blob",
+                "skin": "Matte",
+                "face": "Focused",
+                "head": "Goggles"
+            },
+            "specialEffects": "bubbles",
+            "dialogues": [
+                "We deserve our airdrops!",
+                "No more delays, drop it now!"
+            ]
+        },
+        {
+            "title": "Picketing Pete",
+            "imageUrl": "assets/characters/c5.png",
+            "nftAttributes": {
+                "background": "Mountains",
+                "body": "Blue Blob",
+                "skin": "Glittery",
+                "face": "Grumpy",
+                "head": "Helmet"
+            },
+            "specialEffects": "sparkles",
+            "dialogues": [
+                "I’m here for the free loot!",
+                "Give us the drops, or else!"
+            ]
+        },
+        {
+            "title": "Marching Molly",
+            "imageUrl": "assets/characters/c6.png",
+            "nftAttributes": {
+                "background": "Beach",
+                "body": "Purple Blob",
+                "skin": "Rough",
+                "face": "Determined",
+                "head": "Sunglasses"
+            },
+            "specialEffects": "waves",
+            "dialogues": [
+                "NFT justice now!",
+                "We’re all in this together!"
+            ]
+        },
+        {
+            "title": "Fuming Frank",
+            "imageUrl": "assets/characters/c7.png",
+            "nftAttributes": {
+                "background": "Cloudy",
+                "body": "Red Blob",
+                "skin": "Cracked",
+                "face": "Angry",
+                "head": "Bandana"
+            },
+            "specialEffects": "fireworks",
+            "dialogues": [
+                "This blob demands free NFTs!",
+                "I’m blobbin’ mad!"
+            ]
+        },
+        {
+            "title": "Yelling Yara",
+            "imageUrl": "assets/characters/c8.png",
+            "nftAttributes": {
+                "background": "Night Sky",
+                "body": "White Blob",
+                "skin": "Smooth",
+                "face": "Upset",
+                "head": "Earrings"
+            },
+            "specialEffects": "glow",
+            "dialogues": [
+                "Air. Drop. Now!",
+                "Do the right thing, devs!"
+            ]
+        },
+        {
+            "title": "Chanting Charlie",
+            "imageUrl": "assets/characters/c9.png",
+            "nftAttributes": {
+                "background": "Space",
+                "body": "Black Blob",
+                "skin": "Shiny",
+                "face": "Serious",
+                "head": "Astronaut Helmet"
+            },
+            "specialEffects": "planets",
+            "dialogues": [
+                "Airdrops from the stars!",
+                "We deserve cosmic rewards!"
+            ]
+        },
+        {
+            "title": "Wailing Wanda",
+            "imageUrl": "assets/characters/c10.png",
+            "nftAttributes": {
+                "background": "Jungle",
+                "body": "Lime Blob",
+                "skin": "Wet",
+                "face": "Crying",
+                "head": "Leaf Hat"
+            },
+            "specialEffects": "leaves",
+            "dialogues": [
+                "I can’t hold back the tears!",
+                "Give us airdrops, or I’ll flood the jungle!"
             ]
         }
     ],
-    "buttonText": "Join the Protest!"
+    "buttonText": "Hear the Freaks"
 }

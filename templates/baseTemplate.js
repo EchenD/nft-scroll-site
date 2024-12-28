@@ -1,4 +1,41 @@
 // baseTemplate.js
+import { invokeCharacter } from "../cameo.js";
+
+// Example cameo data if you want to random pick
+const cameoPool = [
+    {
+        imageUrl: "assets/characters/c10.png",
+        lines: [
+            "Hey, I'm the cameo cameo... Surprise!",
+            "I'm just passing by, don't mind me."
+        ]
+    },
+    {
+        imageUrl: "assets/characters/c2.png",
+        lines: [
+            "Did somebody say cameo?",
+            "I'm here to troll your conversation."
+        ]
+    },
+    {
+        imageUrl: "assets/characters/c14.png",
+        lines: [
+            "Popping up from nowhere!",
+            "What's up? Then I'm out."
+        ]
+    }
+];
+
+// random cameo helper
+function getRandomCameoLine(sectionTitle) {
+    const cameo = cameoPool[Math.floor(Math.random() * cameoPool.length)];
+    const randomLine = cameo.lines[Math.floor(Math.random() * cameo.lines.length)];
+    const finalDialogue = `[${sectionTitle}] ${randomLine}`;
+    return {
+        imageUrl: cameo.imageUrl,
+        dialogue: finalDialogue
+    };
+}
 
 export function createBaseTemplate({
     container,
@@ -9,41 +46,23 @@ export function createBaseTemplate({
     animateOut
 }) {
 
-    /****************************
-     * 1) Create wrapper
-     ****************************/
+    // 1) Wrapper
     const wrapper = document.createElement("div");
     wrapper.classList.add("characters-wrapper");
     container.appendChild(wrapper);
 
-    /****************************
-     * 2) Utility Helpers
-     ****************************/
-    function enableWiggle(img) {
-        img.classList.add("wiggle");
-        img.style.animationPlayState = "running";
-    }
-    function disableWiggle(img) {
-        img.classList.remove("wiggle");
-        img.style.animationPlayState = "paused";
+    // Overlap if more than 3
+    if (characters.length > 3) {
+        wrapper.classList.add("overlap-characters");
     }
 
-    /****************************
-     * 3) Create Talk Button
-     ****************************/
+    // 2) Talk Button
     const talkBtn = document.createElement("button");
     talkBtn.innerText = buttonText || "Talk!";
     talkBtn.classList.add("talk-button");
     container.appendChild(talkBtn);
 
-    /****************************
-     * 4) Build Characters / Overlap Logic
-     ****************************/
-    if (characters.length > 3) {
-        // If more than 3, we apply an overlap style
-        wrapper.classList.add("overlap-characters");
-    }
-
+    // 3) Build Characters
     const charContainers = [];
     characters.forEach((ch) => {
         const cc = document.createElement("div");
@@ -51,33 +70,63 @@ export function createBaseTemplate({
         wrapper.appendChild(cc);
 
         const img = document.createElement("img");
-        img.src = ch.image;
+        img.src = ch.imageUrl || ch.image || "";
         img.classList.add("character");
-        img.setAttribute("loading", "lazy");
         cc.appendChild(img);
 
-        const bubble = document.createElement("div");
-        bubble.classList.add("dialogue-bubble");
-        cc.appendChild(bubble);
+        // Dialogue bubble
+        const dialogueBubble = document.createElement("div");
+        dialogueBubble.classList.add("dialogue-bubble");
+        cc.appendChild(dialogueBubble);
+
+        // Attributes bubble
+        const attrBubble = document.createElement("div");
+        attrBubble.classList.add("attributes-bubble");
+        cc.appendChild(attrBubble);
+
+        // Fill attributes text
+        let attrText = "";
+        if (ch.title) attrText += `<strong>Name:</strong> ${ch.title}<br/>`;
+        if (ch.nftAttributes) {
+            for (const [key, val] of Object.entries(ch.nftAttributes)) {
+                attrText += `<strong>${key}:</strong> ${val}<br/>`;
+            }
+        }
+        attrBubble.innerHTML = attrText;
+
+        // Show attributes bubble on hover
+        img.addEventListener("mouseenter", () => {
+            positionAttributeBubble(cc, attrBubble);
+            gsap.to(attrBubble, { opacity: 1, duration: 0.2 });
+        });
+        img.addEventListener("mouseleave", () => {
+            gsap.to(attrBubble, { opacity: 0, duration: 0.2 });
+        });
+
+        // On click => spawn VFX & do solo talk
+        img.addEventListener("click", (e) => {
+            resetConversation();
+            singleCharacterTalk(ch, img, dialogueBubble);
+
+            // spawn the special effect 
+            spawnParticles({
+                type: ch.specialEffects || "heart", // "diamond", "heart", "skull", etc.
+                x: e.clientX,
+                y: e.clientY
+            });
+        });
 
         charContainers.push(cc);
     });
 
-    /****************************
-     * 5) GSAP Timelines
-     ****************************/
+    // 4) GSAP Timelines
     gsap.registerPlugin(ScrollTrigger);
-
     const startTL = gsap.timeline({ paused: true });
     const endTL = gsap.timeline({ paused: true });
+    animateIn(startTL, charContainers, characters.length);
+    animateOut(endTL, charContainers, characters.length);
 
-    // Let the child template define how to animate in/out
-    animateIn(startTL, charContainers);
-    animateOut(endTL, charContainers);
-
-    /****************************
-     * 6) Reset conversation
-     ****************************/
+    // 5) Reset conversation
     function resetConversation() {
         charContainers.forEach((cc) => {
             const bubble = cc.querySelector(".dialogue-bubble");
@@ -87,41 +136,82 @@ export function createBaseTemplate({
         });
     }
 
-    /****************************
-     * 7) Talk logic
-     ****************************/
+    // 6) Wiggle
+    function enableWiggle(img) {
+        img.classList.add("wiggle");
+        img.style.animationPlayState = "running";
+    }
+    function disableWiggle(img) {
+        img.classList.remove("wiggle");
+        img.style.animationPlayState = "paused";
+    }
+
+    // 7) Single talk
+    async function singleCharacterTalk(ch, img, bubble) {
+        const lines = ch.dialogues || [];
+        for (let line of lines) {
+            enableWiggle(img);
+            bubble.innerText = line;
+            gsap.fromTo(bubble, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+            await wait(2000);
+            disableWiggle(img);
+            bubble.style.opacity = 0;
+        }
+    }
+
+    // 8) Group talk logic
     talkBtn.addEventListener("click", async () => {
         resetConversation();
-        const numChars = characters.length;
 
-        // 1 character => sequential lines
-        if (numChars === 1) {
-            const cc = charContainers[0];
-            const bubble = cc.querySelector(".dialogue-bubble");
-            const img = cc.querySelector(".character");
-            const lines = characters[0].dialogues || [];
+        // cameo each time talk is pressed
+        const sectionTitle = container.querySelector("h2")?.textContent || "Unknown";
+        const cameoData = getRandomCameoLine(sectionTitle);
+        invokeCharacter({
+            imageUrl: cameoData.imageUrl,
+            dialogue: cameoData.dialogue,
+            side: "random"
+        });
+
+        // then group talk
+        const num = characters.length;
+        if (num === 1) {
+            groupSingleTalk();
+        } else if (num === 2) {
+            groupTwoTalk();
+        } else {
+            groupMultiTalk();
+        }
+    });
+
+    function groupSingleTalk() {
+        const cc = charContainers[0];
+        const bubble = cc.querySelector(".dialogue-bubble");
+        const img = cc.querySelector(".character");
+        const lines = characters[0].dialogues || [];
+
+        (async () => {
             for (let line of lines) {
                 enableWiggle(img);
                 bubble.innerText = line;
                 gsap.fromTo(bubble, { opacity: 0 }, { opacity: 1, duration: 0.3 });
-                await wait(1500);
+                await wait(2000);
                 disableWiggle(img);
                 bubble.style.opacity = 0;
             }
-            return;
-        }
+        })();
+    }
 
-        // 2 characters => back-and-forth
-        if (numChars === 2) {
-            const cc1 = charContainers[0];
-            const cc2 = charContainers[1];
-            const img1 = cc1.querySelector(".character");
-            const img2 = cc2.querySelector(".character");
-            const bubble1 = cc1.querySelector(".dialogue-bubble");
-            const bubble2 = cc2.querySelector(".dialogue-bubble");
-            const lines1 = characters[0].dialogues || [];
-            const lines2 = characters[1].dialogues || [];
+    function groupTwoTalk() {
+        const cc1 = charContainers[0];
+        const cc2 = charContainers[1];
+        const img1 = cc1.querySelector(".character");
+        const img2 = cc2.querySelector(".character");
+        const bubble1 = cc1.querySelector(".dialogue-bubble");
+        const bubble2 = cc2.querySelector(".dialogue-bubble");
+        const lines1 = characters[0].dialogues || [];
+        const lines2 = characters[1].dialogues || [];
 
+        (async () => {
             const maxLines = Math.max(lines1.length, lines2.length);
             for (let i = 0; i < maxLines; i++) {
                 if (i < lines1.length) {
@@ -141,37 +231,29 @@ export function createBaseTemplate({
                     bubble2.style.opacity = 0;
                 }
             }
-            return;
-        }
-
-        // 3+ characters => everyone talks in parallel
-        if (numChars >= 3) {
-            charContainers.forEach((cc, idx) => {
-                const bubble = cc.querySelector(".dialogue-bubble");
-                const img = cc.querySelector(".character");
-                const lines = characters[idx].dialogues || [];
-                talkInParallel(lines, bubble, img);
-            });
-        }
-    });
-
-    // Helper function for parallel talk
-    function talkInParallel(lines, bubble, img) {
-        (async () => {
-            for (let line of lines) {
-                enableWiggle(img);
-                bubble.innerText = line;
-                gsap.fromTo(bubble, { opacity: 0 }, { opacity: 1, duration: 0.3 });
-                await wait(2000);
-                disableWiggle(img);
-                bubble.style.opacity = 0;
-            }
         })();
     }
 
-    /****************************
-     * 8) onEnter / onLeave triggers
-     ****************************/
+    function groupMultiTalk() {
+        charContainers.forEach((cc, idx) => {
+            const bubble = cc.querySelector(".dialogue-bubble");
+            const img = cc.querySelector(".character");
+            const lines = characters[idx].dialogues || [];
+
+            (async () => {
+                for (let line of lines) {
+                    enableWiggle(img);
+                    bubble.innerText = line;
+                    gsap.fromTo(bubble, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+                    await wait(2000);
+                    disableWiggle(img);
+                    bubble.style.opacity = 0;
+                }
+            })();
+        });
+    }
+
+    // 9) onEnter / onLeave triggers
     ScrollTrigger.create({
         trigger: container,
         start: "top 80%",
@@ -194,11 +276,61 @@ export function createBaseTemplate({
         }
     });
 
-    /****************************
-     * 9) Utility: wait
-     ****************************/
+    // 10) wait
     function wait(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    // 11) Position attribute bubble
+    function positionAttributeBubble(containerDiv, bubbleDiv) {
+        bubbleDiv.style.left = "";
+        bubbleDiv.style.right = "";
+        bubbleDiv.style.top = "";
+        bubbleDiv.style.transform = "";
+
+        const rect = containerDiv.getBoundingClientRect();
+        const midX = window.innerWidth / 2;
+        const centerX = rect.left + (rect.width / 2);
+
+        if (centerX < midX) {
+            // place bubble on the right
+            bubbleDiv.style.left = "110%";
+            bubbleDiv.style.top = "50%";
+            bubbleDiv.style.transform = "translateY(-50%)";
+        } else {
+            // place bubble on the left
+            bubbleDiv.style.right = "110%";
+            bubbleDiv.style.top = "50%";
+            bubbleDiv.style.transform = "translateY(-50%)";
+        }
+    }
+
+    // 12) spawnParticles
+    function spawnParticles({ type = "heart", x, y, count = 6 }) {
+        for (let i = 0; i < count; i++) {
+            const p = document.createElement("div");
+            p.classList.add("particle", type);
+            document.body.appendChild(p);
+
+            p.style.left = x + "px";
+            p.style.top = y + "px";
+
+            const dx = (Math.random() - 0.5) * 150;
+            const dy = (Math.random() - 0.5) * 150;
+            const scale = 0.5 + Math.random() * 0.7;
+
+            gsap.fromTo(p,
+                { x: 0, y: 0, scale: 0.5 },
+                {
+                    x: dx,
+                    y: dy,
+                    scale: scale,
+                    opacity: 0,
+                    duration: 1.2 + Math.random() * 0.5,
+                    onComplete: () => p.remove()
+                }
+            );
+        }
     }
 
     return { startTL, endTL, resetConversation };

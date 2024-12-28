@@ -1,24 +1,28 @@
 import { createBaseTemplate } from "./baseTemplate.js";
 
-function animateIn(startTL, containers) {
+function animateIn(startTL, containers, numChars) {
+    let eachDur = 1 / numChars;
+    if (eachDur < 0.1) eachDur = 0.1;
+
     containers.forEach((cc, i) => {
-        // from bottom
         startTL.from(cc, {
             y: 80,
             opacity: 0,
-            duration: 0.5
-        }, i === 0 ? 0 : ">0.2");
+            duration: eachDur
+        }, i === 0 ? 0 : `>${eachDur * 0.2}`);
     });
 }
 
-function animateOut(endTL, containers) {
+function animateOut(endTL, containers, numChars) {
+    let eachDur = 1 / numChars;
+    if (eachDur < 0.1) eachDur = 0.1;
+
     containers.slice().reverse().forEach((cc, i) => {
-        // back down
         endTL.to(cc, {
             y: 80,
             opacity: 0,
-            duration: 0.4
-        }, i === 0 ? 0 : ">0.1");
+            duration: eachDur
+        }, i === 0 ? 0 : `>${eachDur * 0.1}`);
     });
 }
 

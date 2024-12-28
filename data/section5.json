@@ -3,14 +3,32 @@
     "bgColor": "#ddf0ff",
     "characters": [
         {
-            "image": "assets/characters/c23.png",
+            "title": "Shill Queen Serena",
+            "imageUrl": "assets/characters/c23.png",
+            "nftAttributes": {
+                "background": "Neon Stage",
+                "body": "White Blob",
+                "skin": "Shimmery",
+                "face": "Flirty",
+                "head": "Crown"
+            },
+            "specialEffects": "stars",
             "dialogues": [
                 "Shill Queen Serena cameo? I want a talk show on Netflix!",
                 "I’ll bring all the drama—and the memes!"
             ]
         },
         {
-            "image": "assets/characters/c7.png",
+            "title": "Big Bet Betty",
+            "imageUrl": "assets/characters/c7.png",
+            "nftAttributes": {
+                "background": "Vegas Lights",
+                "body": "Green Blob",
+                "skin": "Smooth",
+                "face": "Confident",
+                "head": "Money Hat"
+            },
+            "specialEffects": "money",
             "dialogues": [
                 "Big Bet Betty speaking—I’ll buy Netflix if they don’t hire me!",
                 "Hollywood can’t resist a whale with diamond pockets."

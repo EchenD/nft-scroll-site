@@ -3,14 +3,32 @@
     "bgColor": "#ffeccc",
     "characters": [
         {
-            "image": "assets/characters/c23.png",
+            "title": "Shill Queen Serena",
+            "imageUrl": "assets/characters/c23.png",
+            "nftAttributes": {
+                "background": "Glam Stage",
+                "body": "White Blob",
+                "skin": "Silky",
+                "face": "Confident",
+                "head": "Gold Tiara"
+            },
+            "specialEffects": "sparkles",
             "dialogues": [
                 "Shill Queen Serena here—my value is off the charts!",
                 "I have more bids than you can count, darling."
             ]
         },
         {
-            "image": "assets/characters/c4.png",
+            "title": "Diamond Hands Dana",
+            "imageUrl": "assets/characters/c4.png",
+            "nftAttributes": {
+                "background": "Vault Room",
+                "body": "Gray Blob",
+                "skin": "Glittery",
+                "face": "Stoic",
+                "head": "Diamond Crown"
+            },
+            "specialEffects": "diamonds",
             "dialogues": [
                 "Diamond Hands Dana at your service. Priceless, obviously!",
                 "Try matching my diamond fortress, Shill Queen!"

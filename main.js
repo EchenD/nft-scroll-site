@@ -28,7 +28,7 @@ async function init() {
 
         mainContainer.appendChild(sectionEl);
 
-        // Fetch the individual section’s data
+        // Now fetch the individual section’s data
         const sectionResp = await fetch(sec.dataFile);
         const sectionData = await sectionResp.json();
         const { templateId, characters, buttonText, bgColor, bgImage } = sectionData;

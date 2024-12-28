@@ -3,14 +3,32 @@
     "bgColor": "#f0ffe5",
     "characters": [
         {
-            "image": "assets/characters/c24.png",
+            "title": "Stake-it Sam",
+            "imageUrl": "assets/characters/c24.png",
+            "nftAttributes": {
+                "background": "Futuristic Club",
+                "body": "Blue Blob",
+                "skin": "Electric",
+                "face": "Groovy",
+                "head": "Headphones"
+            },
+            "specialEffects": "music",
             "dialogues": [
                 "Stake-it Sam dancing while my funds are locked up for 2 years!",
                 "Free drinks, free tunes, locked staking—what a combo!"
             ]
         },
         {
-            "image": "assets/characters/c19.png",
+            "title": "NFT Nia",
+            "imageUrl": "assets/characters/c19.png",
+            "nftAttributes": {
+                "background": "Digital Disco",
+                "body": "Purple Blob",
+                "skin": "Neon",
+                "face": "Artsy",
+                "head": "VR Goggles"
+            },
+            "specialEffects": "lights",
             "dialogues": [
                 "NFT Nia here, painting the dance floor with digital art vibes!",
                 "Wait, you minted my moves? I want royalties!"

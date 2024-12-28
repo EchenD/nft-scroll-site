@@ -1,24 +1,30 @@
 import { createBaseTemplate } from "./baseTemplate.js";
 
-function animateIn(startTL, containers) {
+function animateIn(startTL, containers, numChars) {
+    // total ~1s for the entire group
+    let eachDur = 1 / numChars;
+    if (eachDur < 0.1) eachDur = 0.1; // clamp min 0.1s
+
     containers.forEach((cc, i) => {
-        // fade in from bottom
         startTL.from(cc, {
             opacity: 0,
             y: 50,
-            duration: 0.4
-        }, i === 0 ? 0 : ">0.1");
+            duration: eachDur
+        }, i === 0 ? 0 : `>${eachDur * 0.1}`);
     });
 }
 
-function animateOut(endTL, containers) {
+function animateOut(endTL, containers, numChars) {
+    // same approach on leaving
+    let eachDur = 1 / numChars;
+    if (eachDur < 0.1) eachDur = 0.1;
+
     containers.slice().reverse().forEach((cc, i) => {
-        // fade out to bottom
         endTL.to(cc, {
             opacity: 0,
             y: 50,
-            duration: 0.4
-        }, i === 0 ? 0 : ">0.1");
+            duration: eachDur
+        }, i === 0 ? 0 : `>${eachDur * 0.1}`);
     });
 }
 

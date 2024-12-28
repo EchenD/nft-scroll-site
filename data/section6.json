@@ -3,21 +3,48 @@
     "bgColor": "#fffbe5",
     "characters": [
         {
-            "image": "assets/characters/c17.png",
+            "title": "Meme Lord Maximo",
+            "imageUrl": "assets/characters/c17.png",
+            "nftAttributes": {
+                "background": "Meme Galaxy",
+                "body": "Tan Blob",
+                "skin": "Funny",
+                "face": "Troll",
+                "head": "Meme Crown"
+            },
+            "specialEffects": "memes",
             "dialogues": [
                 "Meme Lord Maximo—spreading chaos, one meme at a time!",
                 "You can’t out-meme me, peasants!"
             ]
         },
         {
-            "image": "assets/characters/c13.png",
+            "title": "Downbad Danny",
+            "imageUrl": "assets/characters/c13.png",
+            "nftAttributes": {
+                "background": "Rainy Cloud",
+                "body": "Blue Blob",
+                "skin": "Drippy",
+                "face": "Sad",
+                "head": "Stormcloud"
+            },
+            "specialEffects": "sadness",
             "dialogues": [
                 "Downbad Danny here, I only have sad memes!",
                 "But I can out-cry you any day!"
             ]
         },
         {
-            "image": "assets/characters/c26.png",
+            "title": "Token Tommy",
+            "imageUrl": "assets/characters/c26.png",
+            "nftAttributes": {
+                "background": "Blockchain Vault",
+                "body": "Gray Blob",
+                "skin": "Metallic",
+                "face": "Determined",
+                "head": "Token Hat"
+            },
+            "specialEffects": "sparkles",
             "dialogues": [
                 "Token Tommy! I hoard memes like tokens. Gotta collect them all!",
                 "Now watch me drop a savage meme bomb..."

@@ -3,14 +3,32 @@
     "bgColor": "#fde7ff",
     "characters": [
         {
-            "image": "assets/characters/c28.png",
+            "title": "YOLO Yuki",
+            "imageUrl": "assets/characters/c28.png",
+            "nftAttributes": {
+                "background": "Heart Clouds",
+                "body": "White Blob",
+                "skin": "Smooth",
+                "face": "Lovestruck",
+                "head": "Valentine Hat"
+            },
+            "specialEffects": "hearts",
             "dialogues": [
                 "YOLO Yuki here. I’m risking my heart—like my crypto trades.",
                 "Gotta say... I’m mooning over you!"
             ]
         },
         {
-            "image": "assets/characters/c27.png",
+            "title": "Volatile Vicky",
+            "imageUrl": "assets/characters/c27.png",
+            "nftAttributes": {
+                "background": "Pink Sunset",
+                "body": "Light Pink Blob",
+                "skin": "Glossy",
+                "face": "Adoring",
+                "head": "Spiky Hair"
+            },
+            "specialEffects": "confetti",
             "dialogues": [
                 "Volatile Vicky in the house—my heart pumps faster than a bull market!",
                 "You make me spike like a 10x chart!"

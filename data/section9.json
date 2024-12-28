@@ -3,14 +3,32 @@
     "bgColor": "#fff4e5",
     "characters": [
         {
-            "image": "assets/characters/c1.png",
+            "title": "No-Coiner Nina",
+            "imageUrl": "assets/characters/c1.png",
+            "nftAttributes": {
+                "background": "Vegas Casino",
+                "body": "Beige Blob",
+                "skin": "Normal",
+                "face": "Clueless",
+                "head": "Dice Hat"
+            },
+            "specialEffects": "confetti",
             "dialogues": [
                 "No-Coiner Nina here—pretending I know crypto. But Vegas is my jam!",
                 "I put it all on red... or was it DOGE?"
             ]
         },
         {
-            "image": "assets/characters/c12.png",
+            "title": "Degen Dora",
+            "imageUrl": "assets/characters/c12.png",
+            "nftAttributes": {
+                "background": "Casino Floor",
+                "body": "Green Blob",
+                "skin": "Hyper",
+                "face": "Excited",
+                "head": "Betting Cap"
+            },
+            "specialEffects": "sparkles",
             "dialogues": [
                 "Degen Dora doubling down on everything!",
                 "If I lose, I can just mint more... right?"

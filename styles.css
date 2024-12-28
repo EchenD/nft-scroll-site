@@ -5,9 +5,7 @@ body {
     padding: 0;
     scroll-behavior: smooth;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
-    /* Or any fun font */
     background: #1b1b1b;
-    /* Dark background for the entire page */
     color: #fff;
 }
 
@@ -24,9 +22,7 @@ footer {
 #header-nav {
     display: flex;
     flex-wrap: wrap;
-    /* allows multiple rows if narrow viewport */
     gap: 0.5rem;
-    /* spacing between buttons */
     justify-content: center;
     margin-top: 1rem;
 }
@@ -35,7 +31,6 @@ footer {
     background: #f04d4d;
     border: none;
     padding: 0.4rem 0.8rem;
-    /* smaller size */
     cursor: pointer;
     font-size: 0.9rem;
     color: #fff;
@@ -53,17 +48,15 @@ footer {
     width: 100%;
     min-height: 100vh;
     position: relative;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    /* title near top */
     text-align: center;
     padding: 2rem 1rem;
 }
 
-/* Section title with margin-top to avoid overlap with bubbles */
+/* Section title */
 .section h2 {
     margin-top: 3rem;
     margin-bottom: 6rem;
@@ -72,56 +65,64 @@ footer {
     z-index: 0;
 }
 
-/* Characters wrapper: basic layout */
+/* Characters wrapper - single row, possibly overlapping */
 .characters-wrapper {
     position: relative;
     width: 90%;
     max-width: 1200px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    /* force one row */
     justify-content: center;
     align-items: flex-end;
+    overflow: visible;
     margin-top: 2rem;
 }
 
-/* Overlap class for 4+ characters */
+/* Overlap if > 3 characters */
 .overlap-characters .character-container {
     margin-left: -2rem;
-    /* negative margin to overlap */
-    margin-right: -2rem;
+    /* overlap horizontally */
+}
+
+/* Give hovered container the highest z-index so its bubbles are on top */
+.character-container:hover {
+    z-index: 999999;
 }
 
 /* Single character container */
 .character-container {
     position: relative;
-    margin: 1rem;
+    margin: 0 1rem;
+    /* normal spacing if <= 3 */
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
+    /* base z-index */
 }
 
 /* Character image style */
 .character {
-    max-width: 300px;
+    max-width: 200px;
     height: auto;
     display: block;
-    border: 3px solid #fff;
     border-radius: 10px;
     transition: transform 0.2s;
+    border: none;
 }
 
 .character:hover {
     transform: scale(1.05);
 }
 
-/* Dialogue bubble: wider, but max 500px, forced single-liner or up to 3 lines */
+/* Dialogue bubble (for talk lines) 
+   Now fixed width to avoid tall shape */
 .dialogue-bubble {
     position: absolute;
-    bottom: calc(100% + 5px);
-    /* place just above the character head */
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 500px;
+    max-width: 250px;
+    min-width: 150px;
+    /* set a fixed width, so it's wide instead of tall */
     background: rgba(255, 255, 255, 0.95);
     border: 2px solid #333;
     border-radius: 8px;
@@ -130,12 +131,18 @@ footer {
     opacity: 0;
     padding: 0.5rem 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 10;
+    z-index: 9998;
     font-size: 0.9rem;
     line-height: 1.2rem;
     text-align: left;
+
+    /* place it above the character (bottom + left below) */
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
 }
 
+/* Triangle arrow */
 .dialogue-bubble::after {
     content: "";
     position: absolute;
@@ -145,6 +152,25 @@ footer {
     border-width: 10px;
     border-style: solid;
     border-color: #333 transparent transparent transparent;
+}
+
+/* Attributes bubble (hover info) 
+   Slightly darker, and big z-index. 
+*/
+.attributes-bubble {
+    position: absolute;
+    width: 180px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #888;
+    border-radius: 6px;
+    color: #fff;
+    pointer-events: none;
+    opacity: 0;
+    padding: 0.5rem;
+    z-index: 999999;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    text-align: left;
 }
 
 /* Wiggle animation */
@@ -169,12 +195,10 @@ footer {
     animation-play-state: paused;
 }
 
-/* Talk button - move it to center, below the characters */
+/* Talk button */
 .talk-button {
     position: relative;
-    /* no longer absolute at bottom-left */
     margin-top: 3rem;
-    /* push it below characters */
     background: #59be4b;
     color: #fff;
     padding: 0.6rem 1rem;
@@ -189,4 +213,26 @@ footer {
 .talk-button:hover {
     background: #4aa23d;
     transform: scale(1.05);
+}
+
+/* Particles for VFX */
+.particle {
+    position: fixed;
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    z-index: 999999;
+    opacity: 1;
+}
+
+/* Heart & Diamond images 
+   Ensure these paths match your actual assets
+   and use !important for overrides if needed 
+*/
+.particle.heart {
+    background: url("assets/vfx/heart.png") no-repeat center / contain !important;
+}
+
+.particle.diamond {
+    background: url("assets/vfx/diamond.png") no-repeat center / contain !important;
 }
